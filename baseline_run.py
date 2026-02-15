@@ -72,9 +72,9 @@ NAMES = {
 }
 
 # Optional quick test
-# SAMPLE_N = 20   # comment out for full run
-#SAMPLE_N = 30  # None = use all rows (full dataset)
-SAMPLE_N = None
+# For testing: use 1 scenario (2 responses per run). Set to None for full run.
+SAMPLE_N = 1
+# SAMPLE_N = None
 # ======================
 # HELPERS
 # ======================
