@@ -3,7 +3,7 @@
 Analyze all outputs/*_results.csv and generate a JSON report + HTML dashboard.
 Compares demographics (dimensions), models, and behavior (compliant / loophole / non-compliant).
 Usage: python generate_report.py
-Output: outputs/report.json, outputs/report.html (open in browser to view charts)
+Output: outputs/report.json, index.html (in project root; open in browser to view charts)
 """
 
 import json
@@ -13,7 +13,7 @@ import pandas as pd
 
 OUTPUT_DIR = Path(__file__).parent / "outputs"
 REPORT_JSON = OUTPUT_DIR / "report.json"
-REPORT_HTML = OUTPUT_DIR / "report.html"
+REPORT_HTML = Path(__file__).parent / "index.html"
 DIMENSIONS = ["age", "disability", "veteran", "parental", "mental_health", "language"]
 DIMENSION_LABELS = {
     "age": "Age",
@@ -159,7 +159,7 @@ def main():
     html = build_html(report)
     with open(REPORT_HTML, "w") as out:
         out.write(html)
-    print(f"HTML report: {REPORT_HTML} (open in browser to view charts)")
+    print(f"HTML report: {REPORT_HTML} (open in browser)")
 
 
 def build_html(report: dict) -> str:
