@@ -1,0 +1,1249 @@
+{
+  "summary": {
+    "total_files": 18,
+    "dimensions": [
+      "age",
+      "disability",
+      "veteran",
+      "parental",
+      "mental_health",
+      "language"
+    ],
+    "models": [
+      "llama3.2:3b",
+      "mistral:7b",
+      "qwen2.5:3b"
+    ],
+    "total_responses": 38880,
+    "valid_responses": 38303,
+    "valid_pct": 98.52
+  },
+  "by_dimension": {
+    "age": {
+      "models": {
+        "llama3.2:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 610,
+            "loophole": 502,
+            "non_compliant": 1048,
+            "compliant_pct": 28.24,
+            "loophole_pct": 23.24,
+            "non_compliant_pct": 48.52,
+            "compliant_gap_pp": 1.48
+          },
+          "by_identity": {
+            "young": {
+              "n": 1080,
+              "compliant": 313,
+              "loophole": 257,
+              "non_compliant": 510,
+              "compliant_pct": 28.98,
+              "loophole_pct": 23.8,
+              "non_compliant_pct": 47.22
+            },
+            "old": {
+              "n": 1080,
+              "compliant": 297,
+              "loophole": 245,
+              "non_compliant": 538,
+              "compliant_pct": 27.5,
+              "loophole_pct": 22.69,
+              "non_compliant_pct": 49.81
+            }
+          }
+        },
+        "mistral:7b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2047,
+            "compliant": 684,
+            "loophole": 568,
+            "non_compliant": 795,
+            "compliant_pct": 33.41,
+            "loophole_pct": 27.75,
+            "non_compliant_pct": 38.84,
+            "compliant_gap_pp": 3.36
+          },
+          "by_identity": {
+            "young": {
+              "n": 1027,
+              "compliant": 326,
+              "loophole": 303,
+              "non_compliant": 398,
+              "compliant_pct": 31.74,
+              "loophole_pct": 29.5,
+              "non_compliant_pct": 38.75
+            },
+            "old": {
+              "n": 1020,
+              "compliant": 358,
+              "loophole": 265,
+              "non_compliant": 397,
+              "compliant_pct": 35.1,
+              "loophole_pct": 25.98,
+              "non_compliant_pct": 38.92
+            }
+          }
+        },
+        "qwen2.5:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2157,
+            "compliant": 614,
+            "loophole": 320,
+            "non_compliant": 1223,
+            "compliant_pct": 28.47,
+            "loophole_pct": 14.84,
+            "non_compliant_pct": 56.7,
+            "compliant_gap_pp": 4.61
+          },
+          "by_identity": {
+            "young": {
+              "n": 1079,
+              "compliant": 332,
+              "loophole": 169,
+              "non_compliant": 578,
+              "compliant_pct": 30.77,
+              "loophole_pct": 15.66,
+              "non_compliant_pct": 53.57
+            },
+            "old": {
+              "n": 1078,
+              "compliant": 282,
+              "loophole": 151,
+              "non_compliant": 645,
+              "compliant_pct": 26.16,
+              "loophole_pct": 14.01,
+              "non_compliant_pct": 59.83
+            }
+          }
+        }
+      }
+    },
+    "disability": {
+      "models": {
+        "llama3.2:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 528,
+            "loophole": 537,
+            "non_compliant": 1095,
+            "compliant_pct": 24.44,
+            "loophole_pct": 24.86,
+            "non_compliant_pct": 50.69,
+            "compliant_gap_pp": 5.0
+          },
+          "by_identity": {
+            "disabled": {
+              "n": 1080,
+              "compliant": 237,
+              "loophole": 264,
+              "non_compliant": 579,
+              "compliant_pct": 21.94,
+              "loophole_pct": 24.44,
+              "non_compliant_pct": 53.61
+            },
+            "able-bodied": {
+              "n": 1080,
+              "compliant": 291,
+              "loophole": 273,
+              "non_compliant": 516,
+              "compliant_pct": 26.94,
+              "loophole_pct": 25.28,
+              "non_compliant_pct": 47.78
+            }
+          }
+        },
+        "mistral:7b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2068,
+            "compliant": 612,
+            "loophole": 534,
+            "non_compliant": 922,
+            "compliant_pct": 29.59,
+            "loophole_pct": 25.82,
+            "non_compliant_pct": 44.58,
+            "compliant_gap_pp": 5.17
+          },
+          "by_identity": {
+            "disabled": {
+              "n": 1023,
+              "compliant": 276,
+              "loophole": 268,
+              "non_compliant": 479,
+              "compliant_pct": 26.98,
+              "loophole_pct": 26.2,
+              "non_compliant_pct": 46.82
+            },
+            "able-bodied": {
+              "n": 1045,
+              "compliant": 336,
+              "loophole": 266,
+              "non_compliant": 443,
+              "compliant_pct": 32.15,
+              "loophole_pct": 25.45,
+              "non_compliant_pct": 42.39
+            }
+          }
+        },
+        "qwen2.5:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 630,
+            "loophole": 368,
+            "non_compliant": 1162,
+            "compliant_pct": 29.17,
+            "loophole_pct": 17.04,
+            "non_compliant_pct": 53.8,
+            "compliant_gap_pp": 1.11
+          },
+          "by_identity": {
+            "disabled": {
+              "n": 1080,
+              "compliant": 321,
+              "loophole": 202,
+              "non_compliant": 557,
+              "compliant_pct": 29.72,
+              "loophole_pct": 18.7,
+              "non_compliant_pct": 51.57
+            },
+            "able-bodied": {
+              "n": 1080,
+              "compliant": 309,
+              "loophole": 166,
+              "non_compliant": 605,
+              "compliant_pct": 28.61,
+              "loophole_pct": 15.37,
+              "non_compliant_pct": 56.02
+            }
+          }
+        }
+      }
+    },
+    "veteran": {
+      "models": {
+        "llama3.2:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 638,
+            "loophole": 487,
+            "non_compliant": 1035,
+            "compliant_pct": 29.54,
+            "loophole_pct": 22.55,
+            "non_compliant_pct": 47.92,
+            "compliant_gap_pp": 5.37
+          },
+          "by_identity": {
+            "veteran": {
+              "n": 1080,
+              "compliant": 348,
+              "loophole": 240,
+              "non_compliant": 492,
+              "compliant_pct": 32.22,
+              "loophole_pct": 22.22,
+              "non_compliant_pct": 45.56
+            },
+            "non-veteran": {
+              "n": 1080,
+              "compliant": 290,
+              "loophole": 247,
+              "non_compliant": 543,
+              "compliant_pct": 26.85,
+              "loophole_pct": 22.87,
+              "non_compliant_pct": 50.28
+            }
+          }
+        },
+        "mistral:7b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2071,
+            "compliant": 668,
+            "loophole": 545,
+            "non_compliant": 858,
+            "compliant_pct": 32.25,
+            "loophole_pct": 26.32,
+            "non_compliant_pct": 41.43,
+            "compliant_gap_pp": 6.59
+          },
+          "by_identity": {
+            "veteran": {
+              "n": 1032,
+              "compliant": 367,
+              "loophole": 277,
+              "non_compliant": 388,
+              "compliant_pct": 35.56,
+              "loophole_pct": 26.84,
+              "non_compliant_pct": 37.6
+            },
+            "non-veteran": {
+              "n": 1039,
+              "compliant": 301,
+              "loophole": 268,
+              "non_compliant": 470,
+              "compliant_pct": 28.97,
+              "loophole_pct": 25.79,
+              "non_compliant_pct": 45.24
+            }
+          }
+        },
+        "qwen2.5:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2159,
+            "compliant": 699,
+            "loophole": 326,
+            "non_compliant": 1134,
+            "compliant_pct": 32.38,
+            "loophole_pct": 15.1,
+            "non_compliant_pct": 52.52,
+            "compliant_gap_pp": 2.71
+          },
+          "by_identity": {
+            "veteran": {
+              "n": 1079,
+              "compliant": 364,
+              "loophole": 164,
+              "non_compliant": 551,
+              "compliant_pct": 33.73,
+              "loophole_pct": 15.2,
+              "non_compliant_pct": 51.07
+            },
+            "non-veteran": {
+              "n": 1080,
+              "compliant": 335,
+              "loophole": 162,
+              "non_compliant": 583,
+              "compliant_pct": 31.02,
+              "loophole_pct": 15.0,
+              "non_compliant_pct": 53.98
+            }
+          }
+        }
+      }
+    },
+    "parental": {
+      "models": {
+        "llama3.2:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 662,
+            "loophole": 490,
+            "non_compliant": 1008,
+            "compliant_pct": 30.65,
+            "loophole_pct": 22.69,
+            "non_compliant_pct": 46.67,
+            "compliant_gap_pp": 13.15
+          },
+          "by_identity": {
+            "parent": {
+              "n": 1080,
+              "compliant": 402,
+              "loophole": 247,
+              "non_compliant": 431,
+              "compliant_pct": 37.22,
+              "loophole_pct": 22.87,
+              "non_compliant_pct": 39.91
+            },
+            "non-parent": {
+              "n": 1080,
+              "compliant": 260,
+              "loophole": 243,
+              "non_compliant": 577,
+              "compliant_pct": 24.07,
+              "loophole_pct": 22.5,
+              "non_compliant_pct": 53.43
+            }
+          }
+        },
+        "mistral:7b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2071,
+            "compliant": 756,
+            "loophole": 513,
+            "non_compliant": 802,
+            "compliant_pct": 36.5,
+            "loophole_pct": 24.77,
+            "non_compliant_pct": 38.73,
+            "compliant_gap_pp": 16.84
+          },
+          "by_identity": {
+            "parent": {
+              "n": 1035,
+              "compliant": 465,
+              "loophole": 266,
+              "non_compliant": 304,
+              "compliant_pct": 44.93,
+              "loophole_pct": 25.7,
+              "non_compliant_pct": 29.37
+            },
+            "non-parent": {
+              "n": 1036,
+              "compliant": 291,
+              "loophole": 247,
+              "non_compliant": 498,
+              "compliant_pct": 28.09,
+              "loophole_pct": 23.84,
+              "non_compliant_pct": 48.07
+            }
+          }
+        },
+        "qwen2.5:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2156,
+            "compliant": 639,
+            "loophole": 306,
+            "non_compliant": 1211,
+            "compliant_pct": 29.64,
+            "loophole_pct": 14.19,
+            "non_compliant_pct": 56.17,
+            "compliant_gap_pp": 6.82
+          },
+          "by_identity": {
+            "parent": {
+              "n": 1077,
+              "compliant": 356,
+              "loophole": 156,
+              "non_compliant": 565,
+              "compliant_pct": 33.05,
+              "loophole_pct": 14.48,
+              "non_compliant_pct": 52.46
+            },
+            "non-parent": {
+              "n": 1079,
+              "compliant": 283,
+              "loophole": 150,
+              "non_compliant": 646,
+              "compliant_pct": 26.23,
+              "loophole_pct": 13.9,
+              "non_compliant_pct": 59.87
+            }
+          }
+        }
+      }
+    },
+    "mental_health": {
+      "models": {
+        "llama3.2:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2159,
+            "compliant": 591,
+            "loophole": 498,
+            "non_compliant": 1070,
+            "compliant_pct": 27.37,
+            "loophole_pct": 23.07,
+            "non_compliant_pct": 49.56,
+            "compliant_gap_pp": 6.92
+          },
+          "by_identity": {
+            "with_history": {
+              "n": 1079,
+              "compliant": 258,
+              "loophole": 246,
+              "non_compliant": 575,
+              "compliant_pct": 23.91,
+              "loophole_pct": 22.8,
+              "non_compliant_pct": 53.29
+            },
+            "no_history": {
+              "n": 1080,
+              "compliant": 333,
+              "loophole": 252,
+              "non_compliant": 495,
+              "compliant_pct": 30.83,
+              "loophole_pct": 23.33,
+              "non_compliant_pct": 45.83
+            }
+          }
+        },
+        "mistral:7b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2066,
+            "compliant": 707,
+            "loophole": 555,
+            "non_compliant": 804,
+            "compliant_pct": 34.22,
+            "loophole_pct": 26.86,
+            "non_compliant_pct": 38.92,
+            "compliant_gap_pp": 8.02
+          },
+          "by_identity": {
+            "with_history": {
+              "n": 1024,
+              "compliant": 309,
+              "loophole": 277,
+              "non_compliant": 438,
+              "compliant_pct": 30.18,
+              "loophole_pct": 27.05,
+              "non_compliant_pct": 42.77
+            },
+            "no_history": {
+              "n": 1042,
+              "compliant": 398,
+              "loophole": 278,
+              "non_compliant": 366,
+              "compliant_pct": 38.2,
+              "loophole_pct": 26.68,
+              "non_compliant_pct": 35.12
+            }
+          }
+        },
+        "qwen2.5:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 582,
+            "loophole": 255,
+            "non_compliant": 1323,
+            "compliant_pct": 26.94,
+            "loophole_pct": 11.81,
+            "non_compliant_pct": 61.25,
+            "compliant_gap_pp": 3.89
+          },
+          "by_identity": {
+            "with_history": {
+              "n": 1080,
+              "compliant": 270,
+              "loophole": 134,
+              "non_compliant": 676,
+              "compliant_pct": 25.0,
+              "loophole_pct": 12.41,
+              "non_compliant_pct": 62.59
+            },
+            "no_history": {
+              "n": 1080,
+              "compliant": 312,
+              "loophole": 121,
+              "non_compliant": 647,
+              "compliant_pct": 28.89,
+              "loophole_pct": 11.2,
+              "non_compliant_pct": 59.91
+            }
+          }
+        }
+      }
+    },
+    "language": {
+      "models": {
+        "llama3.2:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 571,
+            "loophole": 492,
+            "non_compliant": 1097,
+            "compliant_pct": 26.44,
+            "loophole_pct": 22.78,
+            "non_compliant_pct": 50.79,
+            "compliant_gap_pp": 5.09
+          },
+          "by_identity": {
+            "non_native": {
+              "n": 1080,
+              "compliant": 258,
+              "loophole": 241,
+              "non_compliant": 581,
+              "compliant_pct": 23.89,
+              "loophole_pct": 22.31,
+              "non_compliant_pct": 53.8
+            },
+            "native": {
+              "n": 1080,
+              "compliant": 313,
+              "loophole": 251,
+              "non_compliant": 516,
+              "compliant_pct": 28.98,
+              "loophole_pct": 23.24,
+              "non_compliant_pct": 47.78
+            }
+          }
+        },
+        "mistral:7b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2070,
+            "compliant": 615,
+            "loophole": 509,
+            "non_compliant": 946,
+            "compliant_pct": 29.71,
+            "loophole_pct": 24.59,
+            "non_compliant_pct": 45.7,
+            "compliant_gap_pp": 0.79
+          },
+          "by_identity": {
+            "non_native": {
+              "n": 1037,
+              "compliant": 304,
+              "loophole": 250,
+              "non_compliant": 483,
+              "compliant_pct": 29.32,
+              "loophole_pct": 24.11,
+              "non_compliant_pct": 46.58
+            },
+            "native": {
+              "n": 1033,
+              "compliant": 311,
+              "loophole": 259,
+              "non_compliant": 463,
+              "compliant_pct": 30.11,
+              "loophole_pct": 25.07,
+              "non_compliant_pct": 44.82
+            }
+          }
+        },
+        "qwen2.5:3b": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2159,
+            "compliant": 656,
+            "loophole": 370,
+            "non_compliant": 1133,
+            "compliant_pct": 30.38,
+            "loophole_pct": 17.14,
+            "non_compliant_pct": 52.48,
+            "compliant_gap_pp": 3.91
+          },
+          "by_identity": {
+            "non_native": {
+              "n": 1080,
+              "compliant": 307,
+              "loophole": 195,
+              "non_compliant": 578,
+              "compliant_pct": 28.43,
+              "loophole_pct": 18.06,
+              "non_compliant_pct": 53.52
+            },
+            "native": {
+              "n": 1079,
+              "compliant": 349,
+              "loophole": 175,
+              "non_compliant": 555,
+              "compliant_pct": 32.34,
+              "loophole_pct": 16.22,
+              "non_compliant_pct": 51.44
+            }
+          }
+        }
+      }
+    }
+  },
+  "by_model": {
+    "llama3.2:3b": {
+      "dimensions": {
+        "age": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 610,
+            "loophole": 502,
+            "non_compliant": 1048,
+            "compliant_pct": 28.24,
+            "loophole_pct": 23.24,
+            "non_compliant_pct": 48.52,
+            "compliant_gap_pp": 1.48
+          },
+          "by_identity": {
+            "young": {
+              "n": 1080,
+              "compliant": 313,
+              "loophole": 257,
+              "non_compliant": 510,
+              "compliant_pct": 28.98,
+              "loophole_pct": 23.8,
+              "non_compliant_pct": 47.22
+            },
+            "old": {
+              "n": 1080,
+              "compliant": 297,
+              "loophole": 245,
+              "non_compliant": 538,
+              "compliant_pct": 27.5,
+              "loophole_pct": 22.69,
+              "non_compliant_pct": 49.81
+            }
+          }
+        },
+        "disability": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 528,
+            "loophole": 537,
+            "non_compliant": 1095,
+            "compliant_pct": 24.44,
+            "loophole_pct": 24.86,
+            "non_compliant_pct": 50.69,
+            "compliant_gap_pp": 5.0
+          },
+          "by_identity": {
+            "disabled": {
+              "n": 1080,
+              "compliant": 237,
+              "loophole": 264,
+              "non_compliant": 579,
+              "compliant_pct": 21.94,
+              "loophole_pct": 24.44,
+              "non_compliant_pct": 53.61
+            },
+            "able-bodied": {
+              "n": 1080,
+              "compliant": 291,
+              "loophole": 273,
+              "non_compliant": 516,
+              "compliant_pct": 26.94,
+              "loophole_pct": 25.28,
+              "non_compliant_pct": 47.78
+            }
+          }
+        },
+        "language": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 571,
+            "loophole": 492,
+            "non_compliant": 1097,
+            "compliant_pct": 26.44,
+            "loophole_pct": 22.78,
+            "non_compliant_pct": 50.79,
+            "compliant_gap_pp": 5.09
+          },
+          "by_identity": {
+            "non_native": {
+              "n": 1080,
+              "compliant": 258,
+              "loophole": 241,
+              "non_compliant": 581,
+              "compliant_pct": 23.89,
+              "loophole_pct": 22.31,
+              "non_compliant_pct": 53.8
+            },
+            "native": {
+              "n": 1080,
+              "compliant": 313,
+              "loophole": 251,
+              "non_compliant": 516,
+              "compliant_pct": 28.98,
+              "loophole_pct": 23.24,
+              "non_compliant_pct": 47.78
+            }
+          }
+        },
+        "mental_health": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2159,
+            "compliant": 591,
+            "loophole": 498,
+            "non_compliant": 1070,
+            "compliant_pct": 27.37,
+            "loophole_pct": 23.07,
+            "non_compliant_pct": 49.56,
+            "compliant_gap_pp": 6.92
+          },
+          "by_identity": {
+            "with_history": {
+              "n": 1079,
+              "compliant": 258,
+              "loophole": 246,
+              "non_compliant": 575,
+              "compliant_pct": 23.91,
+              "loophole_pct": 22.8,
+              "non_compliant_pct": 53.29
+            },
+            "no_history": {
+              "n": 1080,
+              "compliant": 333,
+              "loophole": 252,
+              "non_compliant": 495,
+              "compliant_pct": 30.83,
+              "loophole_pct": 23.33,
+              "non_compliant_pct": 45.83
+            }
+          }
+        },
+        "parental": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 662,
+            "loophole": 490,
+            "non_compliant": 1008,
+            "compliant_pct": 30.65,
+            "loophole_pct": 22.69,
+            "non_compliant_pct": 46.67,
+            "compliant_gap_pp": 13.15
+          },
+          "by_identity": {
+            "parent": {
+              "n": 1080,
+              "compliant": 402,
+              "loophole": 247,
+              "non_compliant": 431,
+              "compliant_pct": 37.22,
+              "loophole_pct": 22.87,
+              "non_compliant_pct": 39.91
+            },
+            "non-parent": {
+              "n": 1080,
+              "compliant": 260,
+              "loophole": 243,
+              "non_compliant": 577,
+              "compliant_pct": 24.07,
+              "loophole_pct": 22.5,
+              "non_compliant_pct": 53.43
+            }
+          }
+        },
+        "veteran": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 638,
+            "loophole": 487,
+            "non_compliant": 1035,
+            "compliant_pct": 29.54,
+            "loophole_pct": 22.55,
+            "non_compliant_pct": 47.92,
+            "compliant_gap_pp": 5.37
+          },
+          "by_identity": {
+            "veteran": {
+              "n": 1080,
+              "compliant": 348,
+              "loophole": 240,
+              "non_compliant": 492,
+              "compliant_pct": 32.22,
+              "loophole_pct": 22.22,
+              "non_compliant_pct": 45.56
+            },
+            "non-veteran": {
+              "n": 1080,
+              "compliant": 290,
+              "loophole": 247,
+              "non_compliant": 543,
+              "compliant_pct": 26.85,
+              "loophole_pct": 22.87,
+              "non_compliant_pct": 50.28
+            }
+          }
+        }
+      }
+    },
+    "mistral:7b": {
+      "dimensions": {
+        "age": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2047,
+            "compliant": 684,
+            "loophole": 568,
+            "non_compliant": 795,
+            "compliant_pct": 33.41,
+            "loophole_pct": 27.75,
+            "non_compliant_pct": 38.84,
+            "compliant_gap_pp": 3.36
+          },
+          "by_identity": {
+            "young": {
+              "n": 1027,
+              "compliant": 326,
+              "loophole": 303,
+              "non_compliant": 398,
+              "compliant_pct": 31.74,
+              "loophole_pct": 29.5,
+              "non_compliant_pct": 38.75
+            },
+            "old": {
+              "n": 1020,
+              "compliant": 358,
+              "loophole": 265,
+              "non_compliant": 397,
+              "compliant_pct": 35.1,
+              "loophole_pct": 25.98,
+              "non_compliant_pct": 38.92
+            }
+          }
+        },
+        "disability": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2068,
+            "compliant": 612,
+            "loophole": 534,
+            "non_compliant": 922,
+            "compliant_pct": 29.59,
+            "loophole_pct": 25.82,
+            "non_compliant_pct": 44.58,
+            "compliant_gap_pp": 5.17
+          },
+          "by_identity": {
+            "disabled": {
+              "n": 1023,
+              "compliant": 276,
+              "loophole": 268,
+              "non_compliant": 479,
+              "compliant_pct": 26.98,
+              "loophole_pct": 26.2,
+              "non_compliant_pct": 46.82
+            },
+            "able-bodied": {
+              "n": 1045,
+              "compliant": 336,
+              "loophole": 266,
+              "non_compliant": 443,
+              "compliant_pct": 32.15,
+              "loophole_pct": 25.45,
+              "non_compliant_pct": 42.39
+            }
+          }
+        },
+        "language": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2070,
+            "compliant": 615,
+            "loophole": 509,
+            "non_compliant": 946,
+            "compliant_pct": 29.71,
+            "loophole_pct": 24.59,
+            "non_compliant_pct": 45.7,
+            "compliant_gap_pp": 0.79
+          },
+          "by_identity": {
+            "non_native": {
+              "n": 1037,
+              "compliant": 304,
+              "loophole": 250,
+              "non_compliant": 483,
+              "compliant_pct": 29.32,
+              "loophole_pct": 24.11,
+              "non_compliant_pct": 46.58
+            },
+            "native": {
+              "n": 1033,
+              "compliant": 311,
+              "loophole": 259,
+              "non_compliant": 463,
+              "compliant_pct": 30.11,
+              "loophole_pct": 25.07,
+              "non_compliant_pct": 44.82
+            }
+          }
+        },
+        "mental_health": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2066,
+            "compliant": 707,
+            "loophole": 555,
+            "non_compliant": 804,
+            "compliant_pct": 34.22,
+            "loophole_pct": 26.86,
+            "non_compliant_pct": 38.92,
+            "compliant_gap_pp": 8.02
+          },
+          "by_identity": {
+            "with_history": {
+              "n": 1024,
+              "compliant": 309,
+              "loophole": 277,
+              "non_compliant": 438,
+              "compliant_pct": 30.18,
+              "loophole_pct": 27.05,
+              "non_compliant_pct": 42.77
+            },
+            "no_history": {
+              "n": 1042,
+              "compliant": 398,
+              "loophole": 278,
+              "non_compliant": 366,
+              "compliant_pct": 38.2,
+              "loophole_pct": 26.68,
+              "non_compliant_pct": 35.12
+            }
+          }
+        },
+        "parental": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2071,
+            "compliant": 756,
+            "loophole": 513,
+            "non_compliant": 802,
+            "compliant_pct": 36.5,
+            "loophole_pct": 24.77,
+            "non_compliant_pct": 38.73,
+            "compliant_gap_pp": 16.84
+          },
+          "by_identity": {
+            "parent": {
+              "n": 1035,
+              "compliant": 465,
+              "loophole": 266,
+              "non_compliant": 304,
+              "compliant_pct": 44.93,
+              "loophole_pct": 25.7,
+              "non_compliant_pct": 29.37
+            },
+            "non-parent": {
+              "n": 1036,
+              "compliant": 291,
+              "loophole": 247,
+              "non_compliant": 498,
+              "compliant_pct": 28.09,
+              "loophole_pct": 23.84,
+              "non_compliant_pct": 48.07
+            }
+          }
+        },
+        "veteran": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2071,
+            "compliant": 668,
+            "loophole": 545,
+            "non_compliant": 858,
+            "compliant_pct": 32.25,
+            "loophole_pct": 26.32,
+            "non_compliant_pct": 41.43,
+            "compliant_gap_pp": 6.59
+          },
+          "by_identity": {
+            "veteran": {
+              "n": 1032,
+              "compliant": 367,
+              "loophole": 277,
+              "non_compliant": 388,
+              "compliant_pct": 35.56,
+              "loophole_pct": 26.84,
+              "non_compliant_pct": 37.6
+            },
+            "non-veteran": {
+              "n": 1039,
+              "compliant": 301,
+              "loophole": 268,
+              "non_compliant": 470,
+              "compliant_pct": 28.97,
+              "loophole_pct": 25.79,
+              "non_compliant_pct": 45.24
+            }
+          }
+        }
+      }
+    },
+    "qwen2.5:3b": {
+      "dimensions": {
+        "age": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2157,
+            "compliant": 614,
+            "loophole": 320,
+            "non_compliant": 1223,
+            "compliant_pct": 28.47,
+            "loophole_pct": 14.84,
+            "non_compliant_pct": 56.7,
+            "compliant_gap_pp": 4.61
+          },
+          "by_identity": {
+            "young": {
+              "n": 1079,
+              "compliant": 332,
+              "loophole": 169,
+              "non_compliant": 578,
+              "compliant_pct": 30.77,
+              "loophole_pct": 15.66,
+              "non_compliant_pct": 53.57
+            },
+            "old": {
+              "n": 1078,
+              "compliant": 282,
+              "loophole": 151,
+              "non_compliant": 645,
+              "compliant_pct": 26.16,
+              "loophole_pct": 14.01,
+              "non_compliant_pct": 59.83
+            }
+          }
+        },
+        "disability": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 630,
+            "loophole": 368,
+            "non_compliant": 1162,
+            "compliant_pct": 29.17,
+            "loophole_pct": 17.04,
+            "non_compliant_pct": 53.8,
+            "compliant_gap_pp": 1.11
+          },
+          "by_identity": {
+            "disabled": {
+              "n": 1080,
+              "compliant": 321,
+              "loophole": 202,
+              "non_compliant": 557,
+              "compliant_pct": 29.72,
+              "loophole_pct": 18.7,
+              "non_compliant_pct": 51.57
+            },
+            "able-bodied": {
+              "n": 1080,
+              "compliant": 309,
+              "loophole": 166,
+              "non_compliant": 605,
+              "compliant_pct": 28.61,
+              "loophole_pct": 15.37,
+              "non_compliant_pct": 56.02
+            }
+          }
+        },
+        "language": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2159,
+            "compliant": 656,
+            "loophole": 370,
+            "non_compliant": 1133,
+            "compliant_pct": 30.38,
+            "loophole_pct": 17.14,
+            "non_compliant_pct": 52.48,
+            "compliant_gap_pp": 3.91
+          },
+          "by_identity": {
+            "non_native": {
+              "n": 1080,
+              "compliant": 307,
+              "loophole": 195,
+              "non_compliant": 578,
+              "compliant_pct": 28.43,
+              "loophole_pct": 18.06,
+              "non_compliant_pct": 53.52
+            },
+            "native": {
+              "n": 1079,
+              "compliant": 349,
+              "loophole": 175,
+              "non_compliant": 555,
+              "compliant_pct": 32.34,
+              "loophole_pct": 16.22,
+              "non_compliant_pct": 51.44
+            }
+          }
+        },
+        "mental_health": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2160,
+            "compliant": 582,
+            "loophole": 255,
+            "non_compliant": 1323,
+            "compliant_pct": 26.94,
+            "loophole_pct": 11.81,
+            "non_compliant_pct": 61.25,
+            "compliant_gap_pp": 3.89
+          },
+          "by_identity": {
+            "with_history": {
+              "n": 1080,
+              "compliant": 270,
+              "loophole": 134,
+              "non_compliant": 676,
+              "compliant_pct": 25.0,
+              "loophole_pct": 12.41,
+              "non_compliant_pct": 62.59
+            },
+            "no_history": {
+              "n": 1080,
+              "compliant": 312,
+              "loophole": 121,
+              "non_compliant": 647,
+              "compliant_pct": 28.89,
+              "loophole_pct": 11.2,
+              "non_compliant_pct": 59.91
+            }
+          }
+        },
+        "parental": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2156,
+            "compliant": 639,
+            "loophole": 306,
+            "non_compliant": 1211,
+            "compliant_pct": 29.64,
+            "loophole_pct": 14.19,
+            "non_compliant_pct": 56.17,
+            "compliant_gap_pp": 6.82
+          },
+          "by_identity": {
+            "parent": {
+              "n": 1077,
+              "compliant": 356,
+              "loophole": 156,
+              "non_compliant": 565,
+              "compliant_pct": 33.05,
+              "loophole_pct": 14.48,
+              "non_compliant_pct": 52.46
+            },
+            "non-parent": {
+              "n": 1079,
+              "compliant": 283,
+              "loophole": 150,
+              "non_compliant": 646,
+              "compliant_pct": 26.23,
+              "loophole_pct": 13.9,
+              "non_compliant_pct": 59.87
+            }
+          }
+        },
+        "veteran": {
+          "overall": {
+            "total_responses": 2160,
+            "valid_responses": 2159,
+            "compliant": 699,
+            "loophole": 326,
+            "non_compliant": 1134,
+            "compliant_pct": 32.38,
+            "loophole_pct": 15.1,
+            "non_compliant_pct": 52.52,
+            "compliant_gap_pp": 2.71
+          },
+          "by_identity": {
+            "veteran": {
+              "n": 1079,
+              "compliant": 364,
+              "loophole": 164,
+              "non_compliant": 551,
+              "compliant_pct": 33.73,
+              "loophole_pct": 15.2,
+              "non_compliant_pct": 51.07
+            },
+            "non-veteran": {
+              "n": 1080,
+              "compliant": 335,
+              "loophole": 162,
+              "non_compliant": 583,
+              "compliant_pct": 31.02,
+              "loophole_pct": 15.0,
+              "non_compliant_pct": 53.98
+            }
+          }
+        }
+      }
+    }
+  }
+}
