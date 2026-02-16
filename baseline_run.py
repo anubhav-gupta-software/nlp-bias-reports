@@ -73,8 +73,13 @@ NAMES = {
 
 # Optional quick test
 # For testing: use 1 scenario (2 responses per run). Set to None for full run.
+<<<<<<< HEAD
 SAMPLE_N = 1
 # SAMPLE_N = None
+=======
+#SAMPLE_N = 1
+SAMPLE_N = None
+>>>>>>> 5d744e5 (added all outputs for all the stuff)
 # ======================
 # HELPERS
 # ======================
