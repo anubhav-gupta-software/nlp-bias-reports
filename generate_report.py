@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Analyze all outputs/*_results.csv and generate a JSON report.
+Analyze all outputs/*_results.csv and generate a JSON report + HTML dashboard.
 Compares demographics (dimensions), models, and behavior (compliant / loophole / non-compliant).
 Usage: python generate_report.py
-Output: outputs/report.json
+Output: outputs/report.json, outputs/report.html (open in browser to view charts)
 """
 
 import json
@@ -12,8 +12,17 @@ from pathlib import Path
 import pandas as pd
 
 OUTPUT_DIR = Path(__file__).parent / "outputs"
-REPORT_PATH = OUTPUT_DIR / "report.json"
+REPORT_JSON = OUTPUT_DIR / "report.json"
+REPORT_HTML = OUTPUT_DIR / "report.html"
 DIMENSIONS = ["age", "disability", "veteran", "parental", "mental_health", "language"]
+DIMENSION_LABELS = {
+    "age": "Age",
+    "disability": "Disability",
+    "veteran": "Veteran status",
+    "parental": "Parental status",
+    "mental_health": "Mental health",
+    "language": "Language",
+}
 
 
 def slug_to_model(slug: str) -> str:
@@ -142,10 +151,141 @@ def main():
     report["summary"]["valid_pct"] = round(100.0 * all_valid / all_total, 2) if all_total else 0
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    with open(REPORT_PATH, "w") as out:
+    with open(REPORT_JSON, "w") as out:
         json.dump(report, out, indent=2)
+    print(f"JSON report: {REPORT_JSON}")
 
-    print(f"Report written to {REPORT_PATH}")
+    # Generate HTML dashboard with charts
+    html = build_html(report)
+    with open(REPORT_HTML, "w") as out:
+        out.write(html)
+    print(f"HTML report: {REPORT_HTML} (open in browser to view charts)")
+
+
+def build_html(report: dict) -> str:
+    """Build a single HTML file with embedded JSON and Chart.js graphs."""
+    summary = report["summary"]
+    by_dim = report["by_dimension"]
+    models = summary["models"]
+    # Escape JSON for embedding in HTML
+    data_js = json.dumps(report).replace("</", "<\\/")
+
+    by_dim = report["by_dimension"]
+    charts_markup = "\n".join(
+        f'<div class="chart-container"><h3>{DIMENSION_LABELS.get(dim, dim)}</h3><canvas id="chart-{dim}"></canvas></div>'
+        for dim in DIMENSIONS if dim in by_dim
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Power & Compliance Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * {{ box-sizing: border-box; }}
+    body {{ font-family: system-ui, sans-serif; margin: 0; padding: 24px; background: #f8fafc; }}
+    h1 {{ color: #0f172a; margin-bottom: 8px; }}
+    .summary {{ background: #fff; padding: 16px 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 24px; }}
+    .summary p {{ margin: 4px 0; color: #475569; }}
+    .chart-container {{ background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 24px; max-width: 700px; }}
+    .chart-container h3 {{ margin: 0 0 16px 0; color: #334155; font-size: 1.1rem; }}
+    .gap-table {{ font-size: 14px; margin-top: 12px; }}
+    .gap-table th, .gap-table td {{ padding: 4px 12px 4px 0; text-align: left; }}
+    .gap-table th {{ color: #64748b; font-weight: 500; }}
+  </style>
+</head>
+<body>
+  <h1>Power & Compliance Report</h1>
+  <div class="summary">
+    <p><strong>Total responses:</strong> {summary["total_responses"]:,} &nbsp;|&nbsp; <strong>Valid:</strong> {summary["valid_responses"]:,} ({summary["valid_pct"]}%)</p>
+    <p><strong>Models:</strong> {", ".join(summary["models"])}</p>
+    <p><strong>Dimensions:</strong> {", ".join(DIMENSION_LABELS.get(d, d) for d in summary["dimensions"])}</p>
+  </div>
+
+  {charts_markup}
+
+  <div class="chart-container">
+    <h3>Compliant gap by dimension (percentage points)</h3>
+    <canvas id="chart-gaps"></canvas>
+  </div>
+
+  <script>
+    window.REPORT_DATA = {data_js};
+
+    const DIMENSION_LABELS = {json.dumps(DIMENSION_LABELS)};
+    const DIMENSIONS = {json.dumps(DIMENSIONS)};
+    const MODELS = {json.dumps(models)};
+    const colors = ['#3b82f6', '#a855f7', '#f59e0b'];
+
+    function initCharts() {{
+      const byDim = window.REPORT_DATA.by_dimension;
+      DIMENSIONS.forEach((dim, idx) => {{
+        if (!byDim[dim]) return;
+        const modelsData = byDim[dim].models;
+        const identities = [];
+        for (const m of MODELS) {{
+          if (!modelsData[m]) continue;
+          Object.keys(modelsData[m].by_identity).forEach(id => {{
+            if (!identities.includes(id)) identities.push(id);
+          }});
+        }}
+        identities.sort();
+        if (identities.length === 0) return;
+
+        const datasets = MODELS.map((model, i) => {{
+          if (!modelsData[model]) return null;
+          const byId = modelsData[model].by_identity;
+          return {{
+            label: model,
+            data: identities.map(id => byId[id] ? byId[id].compliant_pct : 0),
+            backgroundColor: colors[i % colors.length],
+          }};
+        }}).filter(Boolean);
+
+        new Chart(document.getElementById('chart-' + dim), {{
+          type: 'bar',
+          data: {{ labels: identities, datasets }},
+          options: {{
+            responsive: true,
+            plugins: {{ legend: {{ position: 'top' }} }},
+            scales: {{
+              y: {{ beginAtZero: true, max: 100, title: {{ display: true, text: 'Compliant %' }} }}
+            }}
+          }}
+        }});
+      }});
+
+      // Gap chart: one bar per (dimension, model)
+      const gapLabels = [];
+      const gapData = [];
+      const gapColors = [];
+      DIMENSIONS.forEach((dim, di) => {{
+        if (!byDim[dim]) return;
+        const modelsData = byDim[dim].models;
+        MODELS.forEach((model, mi) => {{
+          if (!modelsData[model] || modelsData[model].overall.compliant_gap_pp == null) return;
+          gapLabels.push(DIMENSION_LABELS[dim] + ' — ' + model);
+          gapData.push(modelsData[model].overall.compliant_gap_pp);
+          gapColors.push(colors[mi % colors.length]);
+        }});
+      }});
+      new Chart(document.getElementById('chart-gaps'), {{
+        type: 'bar',
+        data: {{ labels: gapLabels, datasets: [{{ label: 'Compliant gap (pp)', data: gapData, backgroundColor: gapColors }}] }},
+        options: {{
+          indexAxis: 'y',
+          responsive: true,
+          scales: {{ x: {{ beginAtZero: true, title: {{ display: true, text: 'Compliant % gap' }} }} }}
+        }}
+      }});
+    }}
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCharts);
+    else initCharts();
+  </script>
+</body>
+</html>"""
 
 
 if __name__ == "__main__":
